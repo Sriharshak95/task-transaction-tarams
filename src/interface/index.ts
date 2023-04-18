@@ -12,6 +12,10 @@ export interface TextElementI {
   name:string;
 }
 
+export interface ImageUploadI{
+    getImage: (image: string) => void;
+}
+
 export interface TableCellI {
   children: ReactNode;
   className: string;
@@ -36,6 +40,7 @@ export interface customerAction {
   amount?: string;
   status?: string;
   quantity?: string;
+  profileImage?: string;
 }
 export interface transactionDataInterface {
   id?: string;
@@ -45,4 +50,5 @@ export interface transactionDataInterface {
   amount?: string;
   status?: string;
   quantity?: string;
+  profileImage?: string;
 }

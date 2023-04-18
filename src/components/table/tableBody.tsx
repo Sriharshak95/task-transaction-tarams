@@ -22,9 +22,14 @@ const TableBody: React.FC<{ transactionInfo: transactionDataInterface[] }> = ({
         transactionInfo.map((transaction) => {
           return (
             <tr key={transaction.id}>
-              <TableCell className="pl-8">
+              <TableCell className="pl-8 flex justify-between">
+                <div className="mr-3">
+                  <img alt="profile" src={transaction.profileImage} className="w-7 h-7 rounded-full" />
+                </div>
+                <div>
                 <p>{transaction.id}</p>
                 <p className="text-white font-bold">{transaction.name}</p>
+                </div>
               </TableCell>
               <TableCell className="pr-8">{formatDate(transaction.date)}</TableCell>
               <TableCell className="pr-8">{transaction.price}</TableCell>

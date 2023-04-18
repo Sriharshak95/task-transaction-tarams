@@ -9,6 +9,7 @@ import { useId } from "react";
 import SimpleReactValidator from "simple-react-validator";
 import { showModal } from "../../appStore/modalReducer";
 import { RootState } from "../../appStore/store";
+import UploadImage from "./uploadImage";
 
 const TransactionForm: React.FC = () => {
   const [customerObj, setCustomerObj] = useState({
@@ -19,6 +20,7 @@ const TransactionForm: React.FC = () => {
     amount: 0,
     status: "",
     quantity: 0,
+    profileImage: ''
   });
   const simpleValidator = useRef(
     new SimpleReactValidator({ autoForceUpdate: this })
@@ -70,6 +72,11 @@ const TransactionForm: React.FC = () => {
       onSubmit={handleSubmit}
       className="max-w-lg mx-auto my-4 p-6 bg-white rounded-lg"
     >
+      <div className="mb-2">
+        <UploadImage getImage={(image) => {
+          setCustomerObj({...customerObj, profileImage: image});
+        }} />
+      </div>
       <div className="mb-2">
         <TextElement
           labelName="Name"
